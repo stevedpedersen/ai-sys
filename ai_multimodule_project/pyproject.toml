@@ -1,0 +1,39 @@
+[project]
+name = "ai_multimodule_project"
+version = "0.1.0"
+description = "A multi‑agent system combining an AI assistant, code specialist, RAG, and autonomous agent."
+authors = ["Steve Pedersen <steve*****@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["ai", "multimodule", "assistant", "LLM", "microservices"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+uvicorn = "^0.34"
+pydantic = "^2.10"
+colorlog = "^6.9"
+httpx = "^0.28"
+sentence-transformers = ">=3.4"
+
+# For GPU‑enabled PyTorch, you can add a dependency like this.
+# Note: Official PyTorch wheels on PyPI now support CUDA (typically built with CUDA 12.1).
+# You can adjust the extras or version per the instructions on https://pytorch.org.
+torch = { version = "^2.5.0", extras = ["cuda124"], optional = false }
+
+# Optionally, if you need to use custom package indexes (for example, if PyTorch wheels
+# require a non‑default index), you can add a [tool.poetry.source] section.
+# For example:
+#[tool.poetry.source]
+#name = "pytorch"
+#url = "https://download.pytorch.org/whl/cu124"
+#default = false
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"
